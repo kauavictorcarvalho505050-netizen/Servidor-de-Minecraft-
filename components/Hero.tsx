@@ -38,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({ onCopy, copied }) => {
         </h1>
         
         <p className="text-lg md:text-xl text-slate-100 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-lg font-medium">
-          O servidor feito para o Brasil. Junte-se a milhares de jogadores no melhor PvP, BedWars e Survival com ping BR.
+          O servidor feito para o Brasil. Junte-se a milhares de jogadores no melhor PvP, sistema de RankUp e Eventos incríveis com ping BR.
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-4">

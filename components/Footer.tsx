@@ -7,11 +7,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-brand-500 to-brand-700 rounded flex items-center justify-center">
-                <span className="text-white font-bold">B</span>
-              </div>
-              <span className="text-white font-bold text-lg">BRAZINO<span className="text-accent-400">MC</span></span>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="https://i.imgur.com/yp5JQrv.png" 
+                alt="BrazinoMC Logo" 
+                className="w-10 h-10 object-contain"
+              />
+              <span className="text-yellow-400 font-bold text-lg">BRAZINO<span className="text-blue-700">MC</span></span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">
               O maior servidor de Minecraft do Brasil. Focado em diversão, comunidade e competição.

@@ -1,7 +1,7 @@
-import { Rule, ServerFeature, StoreItem, Clan } from './types';
+import { Rule, ServerFeature, StoreItem } from './types';
 
 export const SERVER_IP = "jogar.brazinomc.com.br";
-export const DISCORD_LINK = "https://discord.gg/brazinomc";
+export const DISCORD_LINK = "https://discord.gg/pwwppcKt";
 export const STORE_LINK = "https://loja.brazinomc.com.br";
 
 export const FEATURES: ServerFeature[] = [
@@ -83,53 +83,5 @@ export const STORE_ITEMS: StoreItem[] = [
     bestValue: true,
     image: 'https://cdn-icons-png.flaticon.com/512/2460/2460494.png',
     features: ['Moeda cosmética global', 'Bônus de +10% incluso', 'Compre caixas misteriosas']
-  }
-];
-
-export const MOCK_CLANS: Clan[] = [
-  {
-    id: '1',
-    name: 'Dragões do Nether',
-    tag: 'DRG',
-    description: 'Focados em dominação total no BedWars. Recrutamento aberto para nível 50+.',
-    level: 15,
-    bank: 45000,
-    createdAt: '2023-11-15',
-    members: [
-      { username: 'DragonKing', role: 'Líder', joinedAt: '2023-11-15' },
-      { username: 'FireMage', role: 'Oficial', joinedAt: '2023-11-20' },
-      { username: 'Burner', role: 'Membro', joinedAt: '2023-12-01' },
-    ],
-    messages: [
-      { id: '1', author: 'DragonKing', content: 'Treino hoje às 20h!', timestamp: '14:30', rank: 'Líder' },
-      { id: '2', author: 'FireMage', content: 'Estarei lá.', timestamp: '14:35', rank: 'Oficial' },
-    ]
-  },
-  {
-    id: '2',
-    name: 'Construtores Lendários',
-    tag: 'BUILD',
-    description: 'Para quem ama construir e criar no Survival.',
-    level: 8,
-    bank: 12500,
-    createdAt: '2024-01-10',
-    members: [
-      { username: 'BobBuilder', role: 'Líder', joinedAt: '2024-01-10' },
-      { username: 'BrickMaster', role: 'Membro', joinedAt: '2024-02-05' },
-    ],
-    messages: []
-  },
-  {
-    id: '3',
-    name: 'PVP Elite',
-    tag: 'PVP',
-    description: 'Só aceitamos os melhores do ranking.',
-    level: 25,
-    bank: 1000000,
-    createdAt: '2023-05-20',
-    members: [
-      { username: 'KillerInstinct', role: 'Líder', joinedAt: '2023-05-20' },
-    ],
-    messages: []
   }
 ];

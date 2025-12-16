@@ -8,10 +8,9 @@ import RulesSection from './components/RulesSection';
 import DiscordSection from './components/DiscordSection';
 import Footer from './components/Footer';
 import StoreSection from './components/StoreSection';
-import ClanSection from './components/ClanSection';
 import AuthModal from './components/AuthModal';
-import { SERVER_IP, MOCK_CLANS } from './constants';
-import { User, Clan } from './types';
+import { SERVER_IP } from './constants';
+import { User } from './types';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -20,9 +19,6 @@ function App() {
   // Auth State
   const [user, setUser] = useState<User | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-
-  // Clan State
-  const [clans, setClans] = useState<Clan[]>(MOCK_CLANS);
 
   const handleCopyIp = () => {
     navigator.clipboard.writeText(SERVER_IP);
@@ -42,7 +38,7 @@ function App() {
 
   const handleNavigate = (pageId: string) => {
     // Pages that are separate "views"
-    const standalonePages = ['store', 'clans'];
+    const standalonePages = ['store'];
 
     if (standalonePages.includes(pageId)) {
       setCurrentPage(pageId);
@@ -69,104 +65,9 @@ function App() {
     }
   };
 
-  // Clan Logic handlers
-  const handleCreateClan = (name: string, tag: string, description: string) => {
-    if (!user) return;
-    
-    const newClan: Clan = {
-      id: Date.now().toString(),
-      name,
-      tag,
-      description,
-      level: 1,
-      bank: 0,
-      createdAt: new Date().toISOString(),
-      members: [{
-        username: user.username,
-        role: 'Líder',
-        joinedAt: new Date().toISOString()
-      }],
-      messages: []
-    };
-
-    setClans([...clans, newClan]);
-    setUser({ ...user, clanId: newClan.id });
-  };
-
-  const handleJoinClan = (clanId: string) => {
-    if (!user) return;
-
-    setClans(clans.map(c => {
-      if (c.id === clanId) {
-        return {
-          ...c,
-          members: [...c.members, {
-            username: user.username,
-            role: 'Membro',
-            joinedAt: new Date().toISOString()
-          }]
-        };
-      }
-      return c;
-    }));
-    setUser({ ...user, clanId: clanId });
-  };
-
-  const handleLeaveClan = () => {
-    if (!user || !user.clanId) return;
-
-    setClans(clans.map(c => {
-      if (c.id === user.clanId) {
-        return {
-          ...c,
-          members: c.members.filter(m => m.username !== user.username)
-        };
-      }
-      return c;
-    }));
-    setUser({ ...user, clanId: undefined });
-  };
-
-  const handleSendClanMessage = (clanId: string, content: string) => {
-    if (!user) return;
-    
-    const member = clans.find(c => c.id === clanId)?.members.find(m => m.username === user.username);
-    if (!member) return;
-
-    const newMessage = {
-      id: Date.now().toString(),
-      author: user.username,
-      content,
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      rank: member.role
-    };
-
-    setClans(clans.map(c => {
-      if (c.id === clanId) {
-        return { ...c, messages: [...c.messages, newMessage] };
-      }
-      return c;
-    }));
-  };
-
-  const handleDepositBank = (clanId: string, amount: number) => {
-    if (!user || user.cash < amount) return;
-
-    // Deduct from user
-    setUser({ ...user, cash: user.cash - amount });
-
-    // Add to clan
-    setClans(clans.map(c => {
-      if (c.id === clanId) {
-        return { ...c, bank: c.bank + amount };
-      }
-      return c;
-    }));
-  };
-
-  // Simple scroll spy (only active when not in Store or Clans mode)
+  // Simple scroll spy (only active when not in Store mode)
   useEffect(() => {
-    if (currentPage === 'store' || currentPage === 'clans') return;
+    if (currentPage === 'store') return;
 
     const handleScroll = () => {
       const sections = ['home', 'games', 'rules', 'discord'];
@@ -201,17 +102,6 @@ function App() {
         <StoreSection 
           user={user}
           onOpenAuth={() => setIsAuthModalOpen(true)}
-        />
-      ) : currentPage === 'clans' ? (
-        <ClanSection 
-          user={user}
-          clans={clans}
-          onOpenAuth={() => setIsAuthModalOpen(true)}
-          onCreateClan={handleCreateClan}
-          onJoinClan={handleJoinClan}
-          onLeaveClan={handleLeaveClan}
-          onSendClanMessage={handleSendClanMessage}
-          onDepositBank={handleDepositBank}
         />
       ) : (
         // Landing Page View

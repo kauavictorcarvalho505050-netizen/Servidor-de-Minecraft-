@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Copy, Check, Gamepad2, ShoppingBag, Book, Users, Home, LogIn, LogOut, User as UserIcon, ChevronDown, Shield } from 'lucide-react';
+import { Menu, X, Copy, Check, Gamepad2, ShoppingBag, Book, Users, Home, LogIn, LogOut, User as UserIcon, ChevronDown } from 'lucide-react';
 import { SERVER_IP } from '../constants';
 import { User } from '../types';
 
@@ -35,7 +35,6 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, user, onOpenAu
     { id: 'home', label: 'Início', icon: <Home size={18} /> },
     { id: 'games', label: 'Jogos', icon: <Gamepad2 size={18} /> },
     { id: 'store', label: 'Loja', icon: <ShoppingBag size={18} /> },
-    { id: 'clans', label: 'Clãs', icon: <Shield size={18} /> },
     { id: 'rules', label: 'Regras', icon: <Book size={18} /> },
     { id: 'discord', label: 'Discord', icon: <Users size={18} /> },
   ];
@@ -52,10 +51,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, user, onOpenAu
           className="text-2xl font-black tracking-tighter cursor-pointer flex items-center gap-2"
           onClick={() => onNavigate('home')}
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-700 rounded-lg flex items-center justify-center shadow-lg shadow-brand-500/20">
-            <span className="text-white font-bold text-xl">B</span>
-          </div>
-          <span className="text-brand-500">BRAZINO<span className="text-accent-400">MC</span></span>
+          <img 
+            src="https://i.imgur.com/yp5JQrv.png" 
+            alt="BrazinoMC Logo" 
+            className="w-14 h-14 object-contain drop-shadow-xl"
+          />
+          <span className="text-yellow-400">BRAZINO<span className="text-blue-700">MC</span></span>
         </div>
 
         {/* Desktop Nav */}
