@@ -22,13 +22,13 @@ export const SERVER_RULES: Rule[] = [
 
 export const STORE_ITEMS: StoreItem[] = [
   {
-    id: 'vip-ferro',
-    name: 'VIP Ferro',
+    id: 'vip-thor',
+    name: 'VIP Thor',
     price: 15.00,
     category: 'vip',
-    image: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', // Placeholder iron
+    image: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', // Placeholder iron/silver look
     features: [
-      'Tag [Ferro] no chat e tab',
+      'Tag [Thor] no chat e tab',
       'Voar no Lobby',
       'Entrar em salas cheias (Prioridade Baixa)',
       '1.000 Cash de bônus',
@@ -36,14 +36,14 @@ export const STORE_ITEMS: StoreItem[] = [
     ]
   },
   {
-    id: 'vip-ouro',
-    name: 'VIP Ouro',
+    id: 'vip-odin',
+    name: 'VIP Odin',
     price: 30.00,
     category: 'vip',
-    image: 'https://cdn-icons-png.flaticon.com/512/179/179249.png', // Placeholder gold
+    image: 'https://cdn-icons-png.flaticon.com/512/179/179249.png', // Placeholder gold look
     features: [
-      'Tag [Ouro] no chat e tab',
-      'Todos benefícios do Ferro',
+      'Tag [Odin] no chat e tab',
+      'Todos benefícios do Thor',
       'Reset de KDR (1x)',
       'Pets exclusivos no Lobby',
       '3.000 Cash de bônus',
@@ -51,34 +51,20 @@ export const STORE_ITEMS: StoreItem[] = [
     ]
   },
   {
-    id: 'vip-diamante',
-    name: 'VIP Diamante',
+    id: 'vip-zeus',
+    name: 'VIP Zeus',
     price: 50.00,
     category: 'vip',
-    image: 'https://cdn-icons-png.flaticon.com/512/390/390260.png', // Placeholder diamond
+    bestValue: true,
+    image: 'https://cdn-icons-png.flaticon.com/512/390/390260.png', // Placeholder diamond/blue look
     features: [
-      'Tag [Diamante] destacada',
+      'Tag [Zeus] destacada',
+      'Todos benefícios do Odin',
       'Voar em mapas de espera',
       'Criar clãs gratuitamente',
       'Acesso ao /nick (Beta)',
       '6.000 Cash de bônus',
       'Prioridade Alta na fila'
-    ]
-  },
-  {
-    id: 'mvp-brazino',
-    name: 'MVP Brazino',
-    price: 89.90,
-    category: 'vip',
-    bestValue: true,
-    image: 'https://cdn-icons-png.flaticon.com/512/6941/6941697.png', // Placeholder crown
-    features: [
-      'Tag [MVP] com cores personalizáveis',
-      'Todos os benefícios anteriores',
-      'Acesso antecipado a novos jogos',
-      'Multiplicador de Coins 3x',
-      '15.000 Cash de bônus',
-      'Prioridade Máxima na fila'
     ]
   },
   {
